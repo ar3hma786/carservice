@@ -33,7 +33,7 @@ const ThreeDModel = () => {
 
     const loader = new GLTFLoader();
     loader.load(
-      'public/model/car/scene.gltf',
+      '/model/car/scene.gltf',
       function (gltf) {
         carObject = gltf.scene;
         carObject.rotation.y = 0; // Ensure the car starts facing forward
