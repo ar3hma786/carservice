@@ -13,8 +13,9 @@ const EnquiryForm = () => {
 
   return (
     <div className="relative h-auto bg-gradient-to-l from-green-400 to-blue-200 flex flex-col items-center justify-center py-8 px-4 sm:px-6 lg:px-8">
-      <Link to="/" className="absolute top-12 left-12 bg-gray-800 text-white py-2 px-4 rounded-md hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 z-10">
+      <Link to="/" className="absolute top-12 left-12 bg-gray-800 text-white py-2 px-4 rounded-md hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 z-10 hidden sm:inline-flex">
         <BiArrowBack className="inline-block mr-2" />
+        Back
       </Link>
       <form onSubmit={handleSubmit} className="w-full bg-transparent rounded-lg shadow-2xl p-6 border-t-4 lg:grid lg:grid-cols-2 lg:gap-6 relative z-0">
         <h2 className="lg:col-span-2 text-4xl text-gray-900 mb-6 text-center">BOOK AN APPOINTMENT</h2>
