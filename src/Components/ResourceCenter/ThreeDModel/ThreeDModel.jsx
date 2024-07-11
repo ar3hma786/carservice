@@ -23,13 +23,15 @@ const ThreeDModel = () => {
     controls.minDistance = 10; // Set minimum zoom distance
     controls.maxDistance = 10; // Set maximum zoom distance (same as minDistance to disable zooming)
     controls.autoRotate = true; // Enable auto-rotation
-    controls.autoRotateSpeed = 12; // Adjust auto-rotation speed
+    controls.autoRotateSpeed = 15; // Adjust auto-rotation speed
 
     // Restrict mouse rotation to side view only (Y-axis)
     controls.minAzimuthAngle = -Infinity; // Allow full 360-degree rotation
     controls.maxAzimuthAngle = Infinity; // Allow full 360-degree rotation
     controls.minPolarAngle = Math.PI / 2; // Restrict rotation to side view only
     controls.maxPolarAngle = Math.PI / 2; // Restrict rotation to side view only
+
+    controls.enableZoom = false; // Disable zooming to allow browser scrolling
 
     const loader = new GLTFLoader();
     loader.load(
@@ -94,7 +96,7 @@ const ThreeDModel = () => {
       camera.updateProjectionMatrix();
       renderer.setSize(window.innerWidth, window.innerHeight);
 
-      // Adjust scale factor on resize
+      //Adjust scale factor on resize
       const scaleFactor = calculateScaleFactor(); // Adjust scale dynamically
       if (carObject) {
         carObject.scale.set(scaleFactor, scaleFactor, scaleFactor);
@@ -127,5 +129,6 @@ const ThreeDModel = () => {
 
   return <div ref={containerRef} style={{ width: '100%', height: '100vh' }} />;
 };
+
 
 export default ThreeDModel;
