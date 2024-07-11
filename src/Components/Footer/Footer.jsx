@@ -2,7 +2,7 @@ import React from 'react';
 
 function Footer() {
   return (
-    <footer className="bg-black text-white py-8 px-4">
+    <footer className="bg-gray-800 text-white py-8 px-4"> {/* Changed background to grey */} 
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4">
         <div className="col-span-1 text-center md:text-left"> {/* Center align on mobile */}
           <h3 className="text-xl font-bold mb-4">Contact Us</h3>
@@ -11,7 +11,7 @@ function Footer() {
           <p className="text-sm">Email: info@example.com</p>
         </div>
         <div className="col-span-1 text-center md:text-left"> {/* Center align on mobile */}
-          <h3 className="text-xl font-bold mb-4">Useful Links</h3>
+          <h3 className="text-xl font-bold mb-4">Lexolent</h3>
           <ul className="text-sm">
             <li><a href="#">About Us</a></li>
             <li><a href="#">Services</a></li>
@@ -29,7 +29,7 @@ function Footer() {
         </div>
       </div>
       <div className="mt-8 text-center">
-        <p className="text-sm">© 2024 Car Services. All rights reserved.</p>
+        <p className="text-sm">© 2024 Lexolent. All rights reserved.</p>
       </div>
     </footer>
   );

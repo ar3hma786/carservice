@@ -20,7 +20,7 @@ function HomePage() {
         }`}
         style={{ fontFamily: 'Montserrat' }}
       >
-        SUPERIOR SERVICE WITH A TOUCH OF CLASS
+        CHAMPIONING YOUR RIGHT TO FAIR CAR LOAN RATES
       </h1>
       
       <p
@@ -30,8 +30,9 @@ function HomePage() {
       >
         <ReactTyped
           strings={[
-            "Discover our commitment to providing exceptional service and elevating your car's performance to new heights.",
-            "Enhance your car's reliability and performance with our cutting-edge maintenance solutions.",
+          "We Secure Compensation for Unfair Car Loan Interest Charges.",
+          "We Offer Comprehensive Financial Solutions to help you navigate the complexities of fair car loan rates."
+  
           ]}
           typeSpeed={100} // Set to maximum speed
           backSpeed={50} // Backspacing speed in milliseconds

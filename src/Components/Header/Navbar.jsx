@@ -88,7 +88,7 @@ export default function Navbar() {
                   onClick={handleEnquiryClick}
                   className="bg-gray-800 text-white rounded-full py-1 px-4 text-sm shadow-lg hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-900 transition duration-300"
                 >
-                  Schedule an Appointment
+                  Login
                 </button>
               </div>
             </div>
@@ -116,7 +116,7 @@ export default function Navbar() {
                 onClick={handleEnquiryClick}
                 className="bg-gray-800 text-white block w-full text-left rounded-md px-3 py-2 text-sm shadow-lg hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-900 transition duration-300"
               >
-                Schedule an Appointment
+                Login
               </button>
             </Disclosure.Panel>
           </Disclosure.Panel>

@@ -8,22 +8,22 @@ function ResourceCenter() {
       <div className="text-gray-600 text-center px-4" style={{ fontFamily: 'Montserrat, sans-serif' }}>
         <div className="text-sm sm:text-base">
           <p className="my-2 hidden md:block md:absolute md:top-[3em] md:left-[8rem] text-sm md:text-base">
-            COMPREHENSIVE ENGINE DIAGNOSTICS <br />& REPAIRS
+            FIGHT AGAINST UNFAIR CAR LOAN <br />INTEREST RATES
           </p>
           <p className="my-2 hidden md:block md:absolute md:top-[3rem] md:right-[8rem] text-sm md:text-base">
-            EFFICIENT BRAKE SYSTEM <br />MAINTENANCE & REPLACEMENT
+            LEGAL ASSISTANCE FOR CAR LOAN <br />DISPUTES
           </p>
           <p className="my-2 hidden md:block md:absolute md:bottom-[3rem] md:right-[8rem] text-sm md:text-base">
-            COMPLETE TIRE SERVICES INCLUDING <br />ROTATION, BALANCING & REPLACEMENT
+            NEGOTIATION OF CAR LOAN <br />REPAYMENT TERMS
           </p>
           <p className="my-2 hidden md:block md:absolute md:bottom-[3rem] md:left-[8rem] text-sm md:text-base">
-            ADVANCED ELECTRICAL SYSTEM <br />REPAIRS & UPGRADES
+            EXPERT ADVICE ON AVOIDING <br />PREDATORY LENDING PRACTICES
           </p>
           <p className="my-2 hidden md:block md:absolute md:top-[15rem] md:right-[3rem] text-sm md:text-base">
-            QUALITY OIL CHANGES <br />& FLUID CHECKS
+            EVALUATION OF CAR LOAN <br />CONTRACTS AND TERMS
           </p>
           <p className="my-2 hidden md:block md:absolute md:top-[15rem] md:left-[3rem] text-sm md:text-base">
-            THOROUGH VEHICLE INSPECTIONS <br />& DIAGNOSTICS
+            GUIDANCE ON SEEKING COMPENSATION <br />FOR UNFAIR FINANCIAL PRACTICES
           </p>
         </div>
       </div>

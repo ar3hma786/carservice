@@ -28,20 +28,20 @@ function AboutUs() {
     <div style={containerStyle} id='aboutus'>
       <div style={gradientStyle}>
         <h1 className="text-3xl sm:text-[2.6rem] mb-6">
-          We Are Your Ultimate <strong>Car Care Solution</strong>
+        Fighting for Fairness in <strong>Car Loan Interest Rates</strong>
         </h1>
         <div style={{ maxWidth: '900px', padding: '0 0.5rem' }} className="mt-2">
           <p className="mb-6 text-sm sm:text-base">
-            Discover the ultimate destination for all your car maintenance and repair needs. At Car Services, we pride ourselves on delivering exceptional service and quality craftsmanship to every vehicle that enters our doors. Our team of dedicated professionals combines years of experience with state-of-the-art diagnostic tools to ensure your vehicle performs at its best.
+          At Lexolent, we specialize in advocating for clients who have been affected by unfair car loan interest rates. Our mission is to ensure you receive fair compensation for any financial harm caused by misleading terms or undisclosed charges, addressing challenges such as excessive interest rates and hidden fees.
           </p>
           <p className="mb-6 text-sm sm:text-base">
-            Our comprehensive range of services covers everything from routine inspections and preventive maintenance to complex repairs and diagnostics. Whether it's a minor tune-up or a major overhaul, we have the expertise and resources to handle it efficiently and effectively.
+          Our dedicated team of experts understands the complexities of car financing and is committed to transparency and accountability. We provide personalized guidance and legal expertise to help you navigate the complexities of filing claims and seeking fair outcomes. Whether you're facing predatory lending practices or contractual misunderstandings, we're here to fight for your rights and financial well-being.
           </p>
           <p className="mb-6 text-sm sm:text-base">
-            At Car Services, customer satisfaction is our top priority. We believe in building long-term relationships with our clients based on trust and transparency. That's why we take the time to explain every service recommendation and provide detailed cost estimates upfront. Your peace of mind is important to us, and we strive to exceed your expectations with every visit.
+          Join our mission to hold car companies accountable. We believe in empowering consumers with the knowledge and resources to challenge unfair practices effectively. Contact us today to learn how we can assist you in reclaiming what's rightfully yours and ensuring a fair financial future. Let us stand with you in the fight for fairness and accountability in car loan practices.
           </p>
           <p className="mb-6 text-sm sm:text-base">
-            Join thousands of satisfied customers who rely on Car Services for reliable, efficient, and personalized car care solutions. Whether you're looking for routine maintenance, emergency repairs, or expert advice, our friendly team is here to help. Contact us today to schedule your next service appointment and experience the difference with Car Services.
+          Together, we can make a difference. Our commitment to integrity and client satisfaction drives us to deliver exceptional service and support. Trust Lexolent to be your advocate in the pursuit of justice against powerful interests. Experience the difference with a team that prioritizes your needs and fights for a fairer car financing landscape.
           </p>
         </div>
       </div>
