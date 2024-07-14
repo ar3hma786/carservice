@@ -7,6 +7,7 @@ import AboutUs from '../Pages/About Us/AboutUs';
 import ResourceCenter from '../Pages/ResourceCenter/ResourceCenter';
 import Footer from '../Footer/Footer';
 import Auth from '../Auth/Auth';
+import Dashboard from '../UserDashboard/Dashboard';
 
 function MainPage() {
   return (
@@ -27,6 +28,7 @@ function Routers() {
         <Route path="/" element={<MainPage />} />
         <Route path="/register" element={<MainPage />} />
         <Route path="/login" element={<MainPage />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
       <Auth/>
       <Footer />

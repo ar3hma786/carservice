@@ -15,10 +15,12 @@ export const registerUser = (reqData) => async (dispatch) => {
     try {
       const response = await api.post(`/auth/signup`, reqData.userData);
       const data = response.data;
+      console.log(data);
   
       if (data.jwt) {
         localStorage.setItem("jwt", data.jwt);
         dispatch({ type: REGISTER_SUCCESS, payload: data.jwt });
+        reqData.navigate("/dashboard"); 
       } else {
         reqData.navigate("/");
         dispatch({ type: REGISTER_FAILURE, payload: 'Registration failed' });
@@ -34,7 +36,8 @@ export const registerUser = (reqData) => async (dispatch) => {
     try {
       const response = await api.post(`/auth/signin`, reqData.userData);
       const data = response.data;
-  
+      console.log("responsedata");
+      console.log(data);
       if (data.jwt) {
         localStorage.setItem("jwt", data.jwt);
         console.log(localStorage.getItem('jwt'));

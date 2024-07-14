@@ -7,6 +7,7 @@ const initialState = {
   errorWr: null,
   favorites: [],
   success: null,
+  isLoggedIn: false, // Ensure initial state is logged out
 };
 
 const authReducer = (state = initialState, action) => {
@@ -23,6 +24,7 @@ const authReducer = (state = initialState, action) => {
         jwt: action.payload.jwt,
         success: "Register success",
         errorWr: null,
+        isLoggedIn: true, // Set to true on successful registration
       };
 
     case LOGIN_SUCCESS:
@@ -33,6 +35,7 @@ const authReducer = (state = initialState, action) => {
         jwt: action.payload.jwt,
         success: "Login success",
         errorWr: null,
+        isLoggedIn: true, // Set to true on successful login
       };
 
     case REGISTER_FAILURE:
@@ -42,6 +45,7 @@ const authReducer = (state = initialState, action) => {
         isLoading: false,
         errorWr: action.payload,
         success: null,
+        isLoggedIn: false, // Ensure it remains false on failure
       };
 
     case LOGOUT:
@@ -51,6 +55,7 @@ const authReducer = (state = initialState, action) => {
         jwt: null,
         success: null,
         errorWr: null,
+        isLoggedIn: false, // Set to false on logout
       };
 
     default:
