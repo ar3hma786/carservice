@@ -1,8 +1,12 @@
-import React, { useRef } from 'react';
-import { Disclosure } from '@headlessui/react';
+import React, { useRef, useState, Fragment } from 'react';
+import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import logoImage from '/images/Logo.png';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Button, Avatar } from '@mui/material'; // Import Button and Avatar from Material-UI
+import PersonIcon from '@mui/icons-material/Person';
+import { useSelector, useDispatch } from 'react-redux';
+import { logoutUser } from '../State/Authentication/Action';
 
 const navigation = [
   { name: 'WHATS IT ALL ABOUT', href: '#home', current: false },
@@ -17,28 +21,31 @@ function classNames(...classes) {
 
 export default function Navbar() {
   const navigate = useNavigate();
-  const resourceRef = useRef(null);
-
-  const handleEnquiryClick = () => {
-    navigate('/enquiry-form');
-  };
+  const location = useLocation();
+  const dispatch = useDispatch();
+  const { isLoggedIn, user } = useSelector((state) => state.auth);
 
   const handleScroll = (e, href) => {
     e.preventDefault();
-    if (window.location.pathname !== '/') {
+    if (location.pathname !== '/') {
       navigate('/');
       setTimeout(() => {
         const targetElement = document.querySelector(href);
         if (targetElement) {
           targetElement.scrollIntoView({ behavior: 'smooth' });
         }
-      }, 100); // Adjust the timeout as needed
+      }, 100);
     } else {
       const targetElement = document.querySelector(href);
       if (targetElement) {
         targetElement.scrollIntoView({ behavior: 'smooth' });
       }
     }
+  };
+
+  const handleLogout = () => {
+    dispatch(logoutUser());
+    navigate('/');
   };
 
   return (
@@ -84,19 +91,49 @@ export default function Navbar() {
                 </div>
               </div>
               <div className="hidden sm:flex sm:items-center sm:space-x-4">
-                <button
-                  onClick={handleEnquiryClick}
-                  className="bg-gray-800 text-white rounded-full py-1 px-4 text-sm shadow-lg hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-900 transition duration-300"
-                >
-                  Login
-                </button>
+                {!isLoggedIn ? (
+                  <Button onClick={() => navigate('/login')} className="text-white">Login</Button>
+                ) : (
+                  <Menu as="div" className="relative">
+                    <Menu.Button className="flex items-center text-white">
+                      <Avatar>{user?.fullName[0].toUpperCase()}</Avatar>
+                    </Menu.Button>
+                    <Transition
+                      as={Fragment}
+                      enter="transition ease-out duration-100"
+                      enterFrom="transform opacity-0 scale-95"
+                      enterTo="transform opacity-100 scale-100"
+                      leave="transition ease-in duration-75"
+                      leaveFrom="transform opacity-100 scale-100"
+                      leaveTo="transform opacity-0 scale-95"
+                    >
+                      <Menu.Items className="absolute right-0 mt-2 w-48 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                        <div className="py-1">
+                          <Menu.Item>
+                            {({ active }) => (
+                              <button
+                                onClick={handleLogout}
+                                className={classNames(
+                                  active ? 'bg-gray-100' : '',
+                                  'block px-4 py-2 text-sm text-gray-700'
+                                )}
+                              >
+                                Logout
+                              </button>
+                            )}
+                          </Menu.Item>
+                        </div>
+                      </Menu.Items>
+                    </Transition>
+                  </Menu>
+                )}
               </div>
             </div>
           </div>
 
-          {/* Tablet and Mobile menu */}
+          {/* Mobile menu */}
           <Disclosure.Panel as="div" className="sm:hidden">
-            <Disclosure.Panel className={`px-2 pt-2 pb-3 space-y-1 ${open ? 'block' : 'hidden'} transition-all duration-300`}>
+            <div className={`px-2 pt-2 pb-3 space-y-1 ${open ? 'block' : 'hidden'} transition-all duration-300`}>
               {navigation.map((item) => (
                 <Disclosure.Button
                   key={item.name}
@@ -112,13 +149,43 @@ export default function Navbar() {
                   {item.name}
                 </Disclosure.Button>
               ))}
-              <button
-                onClick={handleEnquiryClick}
-                className="bg-gray-800 text-white block w-full text-left rounded-md px-3 py-2 text-sm shadow-lg hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-900 transition duration-300"
-              >
-                Login
-              </button>
-            </Disclosure.Panel>
+              {!isLoggedIn ? (
+                <Button onClick={() => navigate('/login')} className="text-white">Login</Button>
+              ) : (
+                <Menu as="div" className="relative">
+                  <Menu.Button className="flex items-center text-white">
+                    <Avatar>{user?.fullName[0].toUpperCase()}</Avatar>
+                  </Menu.Button>
+                  <Transition
+                    as={Fragment}
+                    enter="transition ease-out duration-100"
+                    enterFrom="transform opacity-0 scale-95"
+                    enterTo="transform opacity-100 scale-100"
+                    leave="transition ease-in duration-75"
+                    leaveFrom="transform opacity-100 scale-100"
+                    leaveTo="transform opacity-0 scale-95"
+                  >
+                    <Menu.Items className="absolute right-0 mt-2 w-48 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                      <div className="py-1">
+                        <Menu.Item>
+                          {({ active }) => (
+                            <button
+                              onClick={handleLogout}
+                              className={classNames(
+                                active ? 'bg-gray-100' : '',
+                                'block px-4 py-2 text-sm text-gray-700'
+                              )}
+                            >
+                              Logout
+                            </button>
+                          )}
+                        </Menu.Item>
+                      </div>
+                    </Menu.Items>
+                  </Transition>
+                </Menu>
+              )}
+            </div>
           </Disclosure.Panel>
         </>
       )}

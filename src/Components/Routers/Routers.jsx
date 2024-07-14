@@ -1,13 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from '../Header/Navbar';
-import HomePage from '../Home/HomePage';
-import Services from '../Services/Services';
-import AboutUs from '../About Us/AboutUs';
-import ResourceCenter from '../ResourceCenter/ResourceCenter';
-import EnquiryFillForm from '../Enquiry/EnquiryFillForm'
-import EnquirySubmitted from '../Enquiry/EnquirySubmitted';
+import HomePage from '../Pages/Home/HomePage';
+import Services from '../Pages/Services/Services';
+import AboutUs from '../Pages/About Us/AboutUs';
+import ResourceCenter from '../Pages/ResourceCenter/ResourceCenter';
 import Footer from '../Footer/Footer';
+import Auth from '../Auth/Auth';
 
 function MainPage() {
   return (
@@ -26,9 +25,10 @@ function Routers() {
       <Navbar />
       <Routes>
         <Route path="/" element={<MainPage />} />
-        <Route path="/enquiry-form" element={<EnquiryFillForm/>}/>
-        <Route path="/enquiry-submitted" element={<EnquirySubmitted/>}/>
+        <Route path="/register" element={<MainPage />} />
+        <Route path="/login" element={<MainPage />} />
       </Routes>
+      <Auth/>
       <Footer />
     </Router>
   );
