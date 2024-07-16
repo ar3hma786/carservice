@@ -34,7 +34,7 @@ function Services() {
         </div>
       </div>
       <Link
-        to="/enquiry-form"
+        to="/login"
         className="bg-gray-800 text-white rounded-md mt-8 py-3 px-6 text-md hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-900 mb-8 transition-opacity duration-500"
         style={{ fontFamily: 'Montserrat' }}
       >

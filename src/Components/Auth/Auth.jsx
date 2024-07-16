@@ -1,8 +1,11 @@
-import React from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
+import React from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Modal, Box } from '@mui/material';
 import RegisterForm from './RegisterForm';
 import LoginForm from './LoginForm';
+import ForgotPassword from './ForgotPassword';
+import ResetPassword from './ResetPassword';
+import PasswordUpdateStatus from './PasswordUpdateStatus';
 
 function Auth() {
     const location = useLocation();
@@ -19,23 +22,40 @@ function Auth() {
         outline: "none",
         boxShadow: 24,
         p: 4,
-      };
+    };
 
-  return (
-    
-    <div>
-        <Modal onClose = {handleOnClose} open = {
-            location.pathname === "/register" || location.pathname === "/login"
-        }>
+    const renderForm = () => {
+        switch (location.pathname) {
+            case "/register":
+                return <RegisterForm />;
+            case "/login":
+                return <LoginForm />;
+            case "/forgot-password":
+                return <ForgotPassword />;
+            case "/update-password":
+                return <ResetPassword />;
+            case "/update-password-completed":
+                return <PasswordUpdateStatus />;
+            default:
+                return null;
+        }
+    };
 
-          <Box sx = {style}> 
-              {location.pathname==="/register"?<RegisterForm/>:<LoginForm/>}
-          </Box>
-
-         
-        </Modal>
-    </div>
-  )
+    return (
+        <div>
+            <Modal onClose={handleOnClose} open={
+                location.pathname === "/register" ||
+                location.pathname === "/login" ||
+                location.pathname === "/forgot-password" ||
+                location.pathname === "/update-password" ||
+                location.pathname === "/update-password-completed"
+            }>
+                <Box sx={style}>
+                    {renderForm()}
+                </Box>
+            </Modal>
+        </div>
+    );
 }
 
-export default Auth
+export default Auth;

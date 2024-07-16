@@ -11,7 +11,7 @@ function AboutUs() {
 
   const gradientStyle = {
     width: '100%', // Full width for the gradient
-    backgroundImage: 'linear-gradient(to right, #68D391, #A5B4FC), linear-gradient(to bottom, rgba(255,255,255,0), white)', // Combined left-to-right and bottom gradient
+    backgroundImage: 'linear-gradient(to right, #CE93D8, #A5B4FC), linear-gradient(to bottom, rgba(255,255,255,0), white)', // Combined left-to-right and bottom gradient
     minHeight: '40rem', // Ensure a minimum height for smaller screens
     display: 'flex',
     flexDirection: 'column',

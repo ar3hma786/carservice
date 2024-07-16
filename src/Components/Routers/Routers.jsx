@@ -28,6 +28,9 @@ function Routers() {
         <Route path="/" element={<MainPage />} />
         <Route path="/register" element={<MainPage />} />
         <Route path="/login" element={<MainPage />} />
+        <Route path="/forgot-password" element={<MainPage />} />
+        <Route path="/update-password" element={<MainPage/>} />
+        <Route path="/update-password-completed" element={<MainPage/>} />
         <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
       <Auth/>

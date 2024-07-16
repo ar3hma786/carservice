@@ -40,7 +40,7 @@ const Navbar = () => {
   };
 
   return (
-    <Disclosure as="nav" className="bg-gradient-to-l from-green-400 to-blue-200">
+    <Disclosure as="nav" className="bg-gradient-to-l from-purple-200 to-blue-200">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">

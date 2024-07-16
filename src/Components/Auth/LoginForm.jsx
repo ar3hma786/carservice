@@ -1,18 +1,21 @@
 import React from 'react';
 import { Button, Container, CssBaseline, TextField, Typography } from '@mui/material';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
 import { useNavigate } from 'react-router-dom';
 import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
 import { useDispatch } from 'react-redux';
 import { loginUser } from '../State/Authentication/Action';
+import * as Yup from 'yup';
 
 const initialValues = {
     email: '',
     password: '',
 };
 
-
+const validationSchema = Yup.object().shape({
+    email: Yup.string().email('Invalid email address').required('Email is required'),
+    password: Yup.string().required('Password is required'),
+});
 
 function LoginForm() {
     const navigate = useNavigate();
@@ -41,7 +44,7 @@ function LoginForm() {
                     </Typography>
                     <Formik
                         initialValues={initialValues}
-     
+                        validationSchema={validationSchema}
                         onSubmit={handleSubmit}
                         validateOnBlur={true}
                         validateOnChange={true}
@@ -81,6 +84,13 @@ function LoginForm() {
                                     sx={{ mt: 2, padding: "0.5rem", backgroundColor: '#424242', '&:hover': { backgroundColor: '#333' } }}
                                 >
                                     Login
+                                </Button>
+                                <Button
+                                    onClick={() => navigate("/forgot-password")}
+                                    color="secondary"
+                                    sx={{ mt: 2 }}
+                                >
+                                    Forgot Password?
                                 </Button>
                             </Form>
                         )}

@@ -12,7 +12,7 @@ function HomePage() {
   }, []);
  
   return (
-    <div className="relative h-[15rem] sm:h-[25rem] bg-gradient-to-l from-green-400 to-blue-200 flex flex-col items-center justify-center" id='home'>
+    <div className="relative h-[15rem] sm:h-[25rem] bg-gradient-to-l from-purple-200 to-blue-200 flex flex-col items-center justify-center" id='home'>
       
       <h1
         className={`text-3xl sm:text-[1.5rem] md:text-[2rem] font-extrabold text-gray-800 text-center mb-2 mt-8 transition-opacity duration-4000 ${
@@ -41,7 +41,7 @@ function HomePage() {
       </p>
       
       <Link
-        to="/enquiry-form"
+        to="/login"
         className={`bg-gray-800 text-white rounded-md py-3 px-6 text-md hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-900 mb-8 transition-opacity duration-5000 ${
           showContent ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}
