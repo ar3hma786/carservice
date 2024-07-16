@@ -3,7 +3,7 @@ import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import logoImage from '/images/Logo.png';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Button, Avatar } from '@mui/material';
+import { Button, Avatar, TextField } from '@mui/material';
 import { useSelector, useDispatch } from 'react-redux';
 import { logoutUser } from '../State/Authentication/Action';
 
@@ -40,7 +40,7 @@ const Navbar = () => {
   };
 
   return (
-    <Disclosure as="nav" className="bg-gradient-to-l from-purple-200 to-blue-200">
+    <Disclosure as="nav" className="bg-gradient-to-l from-green-200 to-blue-200">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -60,19 +60,35 @@ const Navbar = () => {
               </div>
               <div className="hidden sm:flex sm:ml-6">
                 <div className="flex space-x-4">
-                  {navigation.map((item) => (
-                    <Link
-                      key={item.name}
-                      to="/"
-                      onClick={(e) => handleScroll(e, item.href)}
-                      className={classNames(
-                        'text-white hover:bg-gray-700 hover:text-white',
-                        'rounded-md px-3 py-2 text-sm font-medium'
-                      )}
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
+                  {isLoggedIn && location.pathname === '/dashboard' ? (
+                    <TextField
+                      variant="outlined"
+                      size="small"
+                      placeholder="Search..."
+                      className="bg-white"
+                      sx={{ 
+                        width: '400px', 
+                        borderRadius: '50px', // Make the border radius rounded
+                        '& .MuiOutlinedInput-root': {
+                          borderRadius: '50px', // Make the input element's border radius rounded
+                        },
+                      }}
+                    />
+                  ) : (
+                    navigation.map((item) => (
+                      <Link
+                        key={item.name}
+                        to="/"
+                        onClick={(e) => handleScroll(e, item.href)}
+                        className={classNames(
+                          'text-white hover:bg-gray-700 hover:text-white',
+                          'rounded-md px-3 py-2 text-sm font-medium'
+                        )}
+                      >
+                        {item.name}
+                      </Link>
+                    ))
+                  )}
                 </div>
               </div>
               <div className="hidden sm:flex sm:items-center sm:space-x-4">
@@ -118,17 +134,33 @@ const Navbar = () => {
 
           <Disclosure.Panel className="sm:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              {navigation.map((item) => (
-                <Disclosure.Button
-                  key={item.name}
-                  as={Link}
-                  to="/"
-                  onClick={(e) => handleScroll(e, item.href)}
-                  className="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-gray-700 hover:text-white"
-                >
-                  {item.name}
-                </Disclosure.Button>
-              ))}
+              {isLoggedIn && location.pathname === '/dashboard' ? (
+                <TextField
+                  variant="outlined"
+                  size="small"
+                  placeholder="Search..."
+                  className="bg-white w-full"
+                  sx={{ 
+                    width: '100%',
+                    borderRadius: '50px', // Make the border radius rounded
+                    '& .MuiOutlinedInput-root': {
+                      borderRadius: '50px', // Make the input element's border radius rounded
+                    },
+                  }}
+                />
+              ) : (
+                navigation.map((item) => (
+                  <Disclosure.Button
+                    key={item.name}
+                    as={Link}
+                    to="/"
+                    onClick={(e) => handleScroll(e, item.href)}
+                    className="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-gray-700 hover:text-white"
+                  >
+                    {item.name}
+                  </Disclosure.Button>
+                ))
+              )}
               {!isLoggedIn ? (
                 <Button onClick={() => navigate('/login')} className="text-white">Login</Button>
               ) : (
@@ -171,6 +203,6 @@ const Navbar = () => {
       )}
     </Disclosure>
   );
-}
+};
 
 export default Navbar;

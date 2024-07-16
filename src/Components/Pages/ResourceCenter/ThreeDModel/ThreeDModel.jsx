@@ -23,7 +23,7 @@ const ThreeDModel = () => {
     controls.minDistance = 10; // Set minimum zoom distance
     controls.maxDistance = 10; // Set maximum zoom distance (same as minDistance to disable zooming)
     controls.autoRotate = true; // Enable auto-rotation
-    controls.autoRotateSpeed = 15; // Adjust auto-rotation speed
+    controls.autoRotateSpeed = 13; // Adjust auto-rotation speed
 
     // Restrict mouse rotation to side view only (Y-axis)
     controls.minAzimuthAngle = -Infinity; // Allow full 360-degree rotation

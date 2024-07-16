@@ -12,7 +12,7 @@ function HomePage() {
   }, []);
  
   return (
-    <div className="relative h-[15rem] sm:h-[25rem] bg-gradient-to-l from-purple-200 to-blue-200 flex flex-col items-center justify-center" id='home'>
+    <div className="relative h-[15rem] sm:h-[25rem] bg-gradient-to-l from-green-200 to-blue-200 flex flex-col items-center justify-center" id='home'>
       
       <h1
         className={`text-3xl sm:text-[1.5rem] md:text-[2rem] font-extrabold text-gray-800 text-center mb-2 mt-8 transition-opacity duration-4000 ${
