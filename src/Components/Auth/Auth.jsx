@@ -5,7 +5,6 @@ import RegisterForm from './RegisterForm';
 import LoginForm from './LoginForm';
 import ForgotPassword from './ForgotPassword';
 import ResetPassword from './ResetPassword';
-import PasswordUpdateStatus from './PasswordUpdateStatus';
 
 function Auth() {
     const location = useLocation();
@@ -34,8 +33,6 @@ function Auth() {
                 return <ForgotPassword />;
             case "/update-password":
                 return <ResetPassword />;
-            case "/update-password-completed":
-                return <PasswordUpdateStatus />;
             default:
                 return null;
         }
@@ -47,8 +44,7 @@ function Auth() {
                 location.pathname === "/register" ||
                 location.pathname === "/login" ||
                 location.pathname === "/forgot-password" ||
-                location.pathname === "/update-password" ||
-                location.pathname === "/update-password-completed"
+                location.pathname === "/update-password"
             }>
                 <Box sx={style}>
                     {renderForm()}
