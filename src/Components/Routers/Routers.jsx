@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import Navbar from '../Header/Navbar';
 import HomePage from '../Pages/Home/HomePage';
 import Services from '../Pages/Services/Services';
@@ -15,28 +15,33 @@ function MainPage() {
       <HomePage />
       <Services />
       <AboutUs />
-      <ResourceCenter /> 
+      <ResourceCenter />
     </div>
   );
 }
 
 function Routers() {
+  const location = useLocation();
+  const hideNavbarAndFooter = location.pathname.startsWith('/dashboard');
+
   return (
-    <Router>
-      <Navbar />
+    <>
+      {!hideNavbarAndFooter && <Navbar />}
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/register" element={<MainPage />} />
         <Route path="/login" element={<MainPage />} />
         <Route path="/forgot-password" element={<MainPage />} />
-        <Route path="/update-password" element={<MainPage/>} />
-        <Route path="/update-password-completed" element={<MainPage/>} />
+        <Route path="/update-password" element={<MainPage />} />
+        <Route path="/update-password-completed" element={<MainPage />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        
       </Routes>
-      <Auth/>
-      <Footer />
-    </Router>
+      {!hideNavbarAndFooter && <Footer />}
+       <Auth />
+    </>
   );
 }
+
 
 export default Routers;

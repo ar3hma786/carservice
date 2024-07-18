@@ -2,7 +2,7 @@ import React from 'react';
 
 function Footer() {
   return (
-    <footer className="bg-gray-800 text-white py-8 px-4"> {/* Changed background to grey */} 
+    <footer className="bg-gray-700 text-white py-8 px-4"> {/* Changed background to grey */} 
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4">
         <div className="col-span-1 text-center md:text-left"> {/* Center align on mobile */}
           <h3 className="text-xl font-bold mb-4">Contact Us</h3>
